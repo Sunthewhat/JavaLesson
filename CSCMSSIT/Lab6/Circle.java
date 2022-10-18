@@ -5,6 +5,11 @@ public class Circle {
 
     private double radius, xcoor, ycoor;
     private final double pi = Math.PI;
+    public static int circleCounter;
+
+    public Circle() {
+        circleCounter++;
+    }
 
     public void setRadius(double r) {
         this.radius = r;
