@@ -71,5 +71,6 @@ class calculatorOOP {
             count++;
         }
         System.out.println(cal.getResult());
+        sc.close();
     }
 }
