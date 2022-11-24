@@ -11,6 +11,18 @@ public class Circle {
         circleCounter++;
     }
 
+    public Circle(double radius) {
+        this.radius = radius;
+        circleCounter++;
+    }
+
+    public Circle(double r, double x, double y) {
+        radius = r;
+        xcoor = x;
+        ycoor = y;
+        circleCounter++;
+    }
+
     public void setRadius(double r) {
         this.radius = r;
     }
@@ -34,6 +46,10 @@ public class Circle {
     public void setCenter(double x, double y) {
         this.xcoor = x;
         this.ycoor = y;
+    }
+
+    public String getCenter() {
+        return xcoor + "," + ycoor;
     }
 
     public double getAreaOfCircles(int n) {

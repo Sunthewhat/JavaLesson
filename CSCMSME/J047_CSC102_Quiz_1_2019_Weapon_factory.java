@@ -14,5 +14,7 @@ public class J047_CSC102_Quiz_1_2019_Weapon_factory {
         
         System.out.println((al+sw) + " " + (al+sh) + " " + (al+hm) + " " + n);
         sc.close();
+
+
     }
 }

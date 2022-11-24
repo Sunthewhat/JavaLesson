@@ -1,43 +1,37 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class J056_Peak_Finding {
-    public static void main(String[] agrs) {
-        Scanner input = new Scanner(System.in);
-        int size = input.nextInt();
-        int array[] = new int[size];
-        int output[] = new int[size];
-        for (int i = 0; i < size; i++) {
-            int a = input.nextInt();
-            array[i] = a;
+
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int q = sc.nextInt();
+        int[] N = new int[q];
+        int[] peak = new int[q];
+        int cnt = 0;
+        for (int i = 0; i < q; i++) {
+            N[i] = sc.nextInt();
         }
-        int count = 0;
-        for (int i = 0; i < size; i++) {
-            if (size == 1) {
-                output[0] = array[i];
-                count++;
-                break;
-            }
+        for (int i = 0; i < q; i++) {
             if (i == 0) {
-                if (array[i] > array[i + 1]) {
-                    output[count] = array[i];
-                    count++;
+                if (N[i] > N[i + 1]) {
+                    peak[cnt++] = N[i];
                 }
-            } else if (i == (size - 1)) {
-                if (array[i] > array[i - 1]) {
-                    output[count] = array[i];
-                    count++;
+            } else if (i == q - 1) {
+                if (N[i] > N[i - 1]) {
+                    peak[cnt++] = N[i];
                 }
-            } else if (array[i] > array[i - 1] && array[i] > array[i + 1]) {
-                output[count] = array[i];
-                count++;
+            } else if (N[i] > N[i - 1] && N[i] > N[i + 1]) {
+                peak[cnt++] = N[i];
             }
         }
-        System.out.println(count);
-        for (int j : output) {
-            if (j == 0)
-                break;
-            System.out.print(j + " ");
+        System.out.println(cnt);
+        Arrays.sort(peak);
+        for (int i : peak) {
+            if (i == 0)
+                continue;
+            System.out.print(i + " ");
         }
-        input.close();
+        System.out.println();
+        sc.close();
     }
 }
