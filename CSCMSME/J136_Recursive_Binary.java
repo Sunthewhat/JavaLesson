@@ -1,5 +1,9 @@
+/**
+ * J136_Recursive_Binary
+ */
 public class J136_Recursive_Binary {
-    static int find(int decimal_number) {
+
+    static long find(int decimal_number) {
         if (decimal_number == 0)
             return 0;
 
@@ -11,8 +15,8 @@ public class J136_Recursive_Binary {
 
     public static void main(String[] args) {
         java.util.Scanner sc = new java.util.Scanner(System.in);
-        int a = sc.nextInt();
-        System.out.println(find(a));
+        int num = sc.nextInt();
+        System.out.println(find(num));
         sc.close();
     }
 }
