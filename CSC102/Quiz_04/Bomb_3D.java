@@ -10,9 +10,9 @@ public class Bomb_3D {
         int zpos;
         boolean field[][][] = new boolean[5][5][5];
         for (int j = 0; j < n; j++) {
-            xpos = sc.next().charAt(0) - '0';
-            ypos = sc.next().charAt(0) - '0';
-            zpos = sc.next().charAt(0) - '0';
+            xpos = sc.nextInt();
+            ypos = sc.nextInt();
+            zpos = sc.nextInt();
 
             for (int i = 0; i < 5; i++) {
                 if (field[xpos][ypos][i])
