@@ -9,8 +9,7 @@ public class J000_test {
 
     public static void main(String[] args) {
         java.util.Scanner sc = new java.util.Scanner(System.in);
-        boolean a = f();
-        System.out.println(a);
+        System.out.println(12345%7);
         sc.close();
     }
 }

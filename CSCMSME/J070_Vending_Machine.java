@@ -1,4 +1,3 @@
-import java.util.Properties;
 import java.util.Scanner;
 
 public class J070_Vending_Machine {
