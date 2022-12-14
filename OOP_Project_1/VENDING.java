@@ -1,4 +1,3 @@
-import java.util.Properties;
 import java.util.Scanner;
 
 public class VENDING {
@@ -166,6 +165,18 @@ class CoinProcessor {
         this.onebahtCoin = one;
         this.fivebahtCoin = five;
         this.tenbahtCoin = ten;
+    }
+
+    public int getFivebahtCoin() {
+        return fivebahtCoin;
+    }
+
+    public int getOnebahtCoin() {
+        return onebahtCoin;
+    }
+
+    public int getTenbahtCoin() {
+        return tenbahtCoin;
     }
 
     public boolean returnChange(int m, int c[]) {

@@ -45,7 +45,8 @@ public class J070_Vending_Machine {
         System.out.println(vm.getInsertedMoney());
         int pindex = sc.nextInt();
         int q = sc.nextInt();
-        System.out.println("---Buy " + q + " of " + vm.getProduct(pindex).getName() + " costs " + (vm.getProduct(pindex).getPrice() * q) + " baht---");
+        System.out.println("---Buy " + q + " of " + vm.getProduct(pindex).getName() + " costs "
+                + (vm.getProduct(pindex).getPrice() * q) + " baht---");
         System.out.println("---Change---");
         vm.buy(pindex, q);
     }
@@ -64,100 +65,91 @@ class Product {
         this.quantity = 0;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public int getPrice() {
         return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getName() {
+        return name;
     }
 
     public int getQuantity() {
         return quantity;
     }
 
-    public void addQuantity(int quantity) {
-        this.quantity += quantity;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
 
 class VendingMachine {
     private Product[] slots = new Product[10];
     private int[] coins = { 0, 0, 0 };
-    private int[] coinsref = { 0, 0, 0 };
     private int insertedMoney = 0;
     private CoinProcessor cp = new CoinProcessor(100, 100, 100);
 
-    public VendingMachine() {
+    public VendingMachine(Product slots[], int coins[], int insertedMoney, CoinProcessor cp) {
+        this.slots = slots;
+        this.coins = coins;
+        this.insertedMoney = insertedMoney;
+        this.cp = cp;
+    }
+
+    VendingMachine() {
 
     }
 
-    public void buy(int index, int quantity) {
-        if (!cp.returnChange(insertedMoney - slots[index].getPrice() * quantity, coins)) {
-            System.out.println("Not enough change");
-        }
+    public void addProduct(Product p, int i) {
+        this.slots[i] = p;
     }
 
-    public void insertCoin(int coin) {
-        switch (coin) {
-            case 1:
-                coins[0]++;
-                break;
-            case 5:
-                coins[1]++;
-                break;
-            case 10:
-                coins[2]++;
-                break;
-        }
-        insertedMoney += coin;
+    public void removeProduct(int i) {
+        slots[i] = null;
     }
 
-    public void addProduct(Product product, int index) {
-        slots[index] = product;
-    }
-
-    public void removeProduct(int index) {
-        slots[index] = null;
-    }
-
-    public void addQuantity(int index, int quantity) {
-        slots[index].addQuantity(quantity);
-    }
-
-    public Product getProduct(int index) {
-        return slots[index];
+    public void addQuantity(int i, int q) {
+        slots[i].setQuantity(slots[i].getQuantity() + q);
     }
 
     public int getInsertedMoney() {
         return insertedMoney;
     }
 
-    public void cancle() {
-        insertedMoney = 0;
-        coins = coinsref;
+    public Product getProduct(int i) {
+        return slots[i];
     }
 
+    public void buy(int i, int q) {
+        if (cp.returnChange(insertedMoney - slots[i].getPrice() * q, coins) == false)
+            System.out.println("Not enough change");
+    }
+
+    public void insertCoin(int c) {
+        insertedMoney += c;
+        if (c == 1) {
+            this.coins[0]++;
+        } else if (c == 5) {
+            this.coins[1]++;
+        } else if (c == 10) {
+            this.coins[2]++;
+        }
+    }
 }
 
 class CoinProcessor {
@@ -174,11 +166,45 @@ class CoinProcessor {
         this.fivebahtCoin = five;
         this.tenbahtCoin = ten;
     }
-    
 
-    public boolean returnChange(int money, int[] coins) {
-        int coinMoney = coins[0] + coins[1] * 5 + coins[2] * 10;
-        return coinMoney >= money ? true : false;
+    public int getFivebahtCoin() {
+        return fivebahtCoin;
     }
 
+    public int getOnebahtCoin() {
+        return onebahtCoin;
+    }
+
+    public int getTenbahtCoin() {
+        return tenbahtCoin;
+    }
+
+    public boolean returnChange(int m, int c[]) {
+        int[] coin = { 0, 0, 0 };
+        this.onebahtCoin = c[0];
+        this.fivebahtCoin = c[1];
+        this.tenbahtCoin = c[2];
+        while (m > 0) {
+            if (m >= 10) {
+                this.tenbahtCoin--;
+                coin[2]++;
+                m -= 10;
+            } else if (m >= 5) {
+                this.fivebahtCoin--;
+                coin[1]++;
+                m -= 5;
+            } else if (m >= 1) {
+                this.onebahtCoin--;
+                coin[0]++;
+                m -= 1;
+            }
+        }
+        System.out.println("One-baht Coin: " + coin[0]);
+        System.out.println("Five-baht Coin: " + coin[1]);
+        System.out.println("Ten-baht Coin: " + coin[2]);
+        if (m == 0) {
+            return true;
+        }
+        return false;
+    }
 }
