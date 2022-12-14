@@ -1,8 +1,7 @@
 import java.util.ArrayList;
-class Libraly {
-    
-}
-class Main {
+import java.util.Comparator;
+
+public class Libraly {
     public static void main(String[] args) {
         Library rb = new Library("Ratchaburi KMUTT");
         rb.setName("Ratchaburi KMUTT campus");
@@ -125,23 +124,176 @@ class Main {
 }
 
 class Human {
-    // Write your code here
+    private int id;
+    private String name;
+
+    public Human(int id, String n) {
+        this.id = id;
+        this.name = n;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
 
-class Employee {
-    // Write your code here
+class Employee extends Human {
+    private int employeeid;
+    private double salary;
+
+    public Employee(int id, String name, int employeeid, double salary) {
+        super(id, name);
+        this.employeeid = employeeid;
+        this.salary = salary;
+    }
+
+    public int getEmployeeid() {
+        return employeeid;
+    }
+
+    public void setEmployeeid(int employeeid) {
+        this.employeeid = employeeid;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
 }
 
 class Book {
-    // Write your code here
+    private int id;
+    private String name;
+
+    public Book(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
 
 class Library {
-    // Write your code here
+    private String name;
+    private ArrayList<Employee> employees = new ArrayList<Employee>();
+    private ArrayList<Book> books = new ArrayList<Book>();
+
+    public Library(String name) {
+        this.name = name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void addEmployee(Employee em) {
+        employees.add(em);
+    }
+
+    public boolean removeEmployee(int employeeid) {
+        for (Employee em : employees) {
+            if (em.getEmployeeid() == employeeid) {
+                employees.remove(em);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int getNumberOfEmployees() {
+        return employees.size();
+    }
+
+    public double getTotalSalary() {
+        double sumsalary = 0;
+        for (Employee employee : employees) {
+            sumsalary += employee.getSalary();
+        }
+        return sumsalary;
+    }
+
+    public void addBook(Book book) {
+        books.add(book);
+        books.sort(bookID);
+
+    }
+
+    public static Comparator<Book> bookID = (id1, id2) -> {
+        return id1.getId() - id2.getId();
+    };
 
     public void printInfoOfAllBooks() {
         for (int i = 0; i < this.books.size(); i++) {
             System.out.println("(id: " + this.books.get(i).getId() + ", name : " + this.books.get(i).getName() + ")");
         }
+    }
+
+    public int searchBookByName(String name) {
+        int count = 0;
+        for (Book book : books) {
+            if (book.getName().equals(name))
+                count++;
+        }
+        return count;
+    }
+
+    public int searchBookById(int id) {
+        for (Book book : books) {
+            if (book.getId() == id)
+                return books.indexOf(book);
+        }
+        return -1;
+    }
+
+    public Book borrowBook(int id) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).getId() == id) {
+                Book b = books.get(i);
+                books.remove(i);
+                return b;
+            }
+        }
+        return null;
+    }
+
+    public void returnBook(Book b) {
+        addBook(b);
+    }
+
+    public int getAmountOfBooks() {
+        return books.size();
     }
 }
