@@ -49,6 +49,7 @@ public class J070_Vending_Machine {
                 + (vm.getProduct(pindex).getPrice() * q) + " baht---");
         System.out.println("---Change---");
         vm.buy(pindex, q);
+        sc.close();
     }
 }
 

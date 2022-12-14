@@ -14,5 +14,6 @@ public class big2 {
         int a = sc.nextInt();
         long ans = binary(a);
         System.out.println(ans);
+        sc.close();
     }
 }
