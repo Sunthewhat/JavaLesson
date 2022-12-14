@@ -1,37 +1,36 @@
-import java.util.*;
+import java.util.ArrayList;
 
 public class J056_Peak_Finding {
-
     public static void main(String[] args) {
         java.util.Scanner sc = new java.util.Scanner(System.in);
-        int q = sc.nextInt();
-        int[] N = new int[q];
-        int[] peak = new int[q];
-        int cnt = 0;
-        for (int i = 0; i < q; i++) {
-            N[i] = sc.nextInt();
+        ArrayList<Integer> list = new ArrayList<>();
+        int n = sc.nextInt();
+        int a[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
         }
-        for (int i = 0; i < q; i++) {
-            if (i == 0) {
-                if (N[i] > N[i + 1]) {
-                    peak[cnt++] = N[i];
+        if (n == 1) {
+            System.out.println("1\n" + a[0]);
+        } else {
+            for (int i = 0; i < n; i++) {
+                if (i == 0) {
+
+                    if (a[i] > a[i + 1])
+                        list.add(a[i]);
+                } else if (i == n - 1) {
+
+                    if (a[i] > a[i - 1])
+                        list.add(a[i]);
+                } else {
+                    if (a[i] > a[i - 1] && a[i] > a[i + 1])
+                        list.add(a[i]);
                 }
-            } else if (i == q - 1) {
-                if (N[i] > N[i - 1]) {
-                    peak[cnt++] = N[i];
-                }
-            } else if (N[i] > N[i - 1] && N[i] > N[i + 1]) {
-                peak[cnt++] = N[i];
+            }
+            System.out.println(list.size());
+            for (int i : list) {
+                System.out.print(i + " ");
             }
         }
-        System.out.println(cnt);
-        Arrays.sort(peak);
-        for (int i : peak) {
-            if (i == 0)
-                continue;
-            System.out.print(i + " ");
-        }
-        System.out.println();
         sc.close();
     }
 }
