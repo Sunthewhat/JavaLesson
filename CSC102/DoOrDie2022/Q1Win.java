@@ -4,8 +4,8 @@ public class Q1Win {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
+        sc.close();
         int res = 0;
-        int dig = 8;
         int[] numm = new int[9];
         numm[0] = num / 100000000 % 10;
         numm[1] = num / 10000000 % 10;

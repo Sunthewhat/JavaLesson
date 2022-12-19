@@ -4,12 +4,7 @@ public class Q2 {
         int n = sc.nextInt();
         String a[] = new String[n];
         for (int i = 0; i < n; i++) {
-            if (i % 2 == 0) {
-                a[i] = sc.next().toUpperCase();
-            } else {
-                a[i] = sc.next().toLowerCase();
-            }
-
+            a[i] = i % 2 == 0 ? sc.next().toUpperCase() : sc.next().toLowerCase();
             for (int j = a[i].length() - 1; j >= 0; j--) {
                 System.out.print(a[i].charAt(j));
             }
