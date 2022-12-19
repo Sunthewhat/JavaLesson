@@ -6,7 +6,7 @@ public class Q1 {
         int sum = 0;
         // System.out.println(len/2);
         // System.out.print(a.charAt(4));
-        if ((a.charAt(4) - '0') % 2 == 1) {
+        if ((a.charAt(len / 2) - '0') % 2 == 1) {
 
             for (int i = 1; i < len; i += 2) {
                 sum += a.charAt(i) - '0';
