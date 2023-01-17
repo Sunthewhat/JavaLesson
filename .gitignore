@@ -29,6 +29,8 @@
 # Executables
 *.class
 *.exe
+*.Executables
+*.exec
 *.out
 *.app
 
