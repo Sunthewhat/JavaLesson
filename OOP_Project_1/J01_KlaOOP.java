@@ -3,6 +3,9 @@ public class J01_KlaOOP {
         Dog kati = new Dog("Kati", 4);
         System.out.println(Dog.dogCount);
         Dog happy = new Dog();
+        System.out.println(kati.getAge());
+        System.out.println(happy.getAge());
+
     }
 }
 
