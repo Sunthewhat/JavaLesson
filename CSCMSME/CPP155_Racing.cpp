@@ -12,7 +12,6 @@ int main() {
           int diffdis, v;
           double tmptime;
           cin >> diffdis >> v;
-          
           tmptime = (double)(dis - diffdis) / (double)v;
           time[i] = tmptime;
           timesort[i] = tmptime;

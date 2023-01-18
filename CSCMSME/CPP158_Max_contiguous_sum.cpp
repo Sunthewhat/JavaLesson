@@ -14,6 +14,7 @@ int main() {
      }
      int mx = -10e9;
      for (int i = range; i <= n; i++) {
+          
           mx = max(mx, dp[i] - dp[i - range]);
      }
      cout << mx;

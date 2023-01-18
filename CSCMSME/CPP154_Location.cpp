@@ -9,6 +9,7 @@ int main()
         for (int j = 0; j < m; j++)
         {
             cin >> field[i][j];
+            
             rdp[i] += field[i][j];
             cdp[j] += field[i][j];
         }
