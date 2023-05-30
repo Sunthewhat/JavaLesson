@@ -8,7 +8,7 @@ public class J020_Pattern_Mountain {
                 if (field[i][j] == null)
                     System.out.print("-");
                 else
-                    System.out.print("*");
+                    System.out.print(field[i][j]);
             }
             System.out.println();
         }

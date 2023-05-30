@@ -1,6 +1,3 @@
-/**
- * J039_Dcrypt_Code
- */
 public class J039_Decrypt_Code {
 
     public static void main(String[] args) {
