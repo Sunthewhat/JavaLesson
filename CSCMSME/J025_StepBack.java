@@ -3,15 +3,11 @@ public class J025_StepBack {
         java.util.Scanner sc = new java.util.Scanner(System.in);
         int a = sc.nextInt();
         int b = sc.nextInt();
-        int mx = Math.max(a, b), mn = Math.min(a, b);
+        int mx = Math.max(a, b);
+        int mn = Math.min(a, b);
         for (int i = 1; i <= mx - mn + 1; i++) {
-            int j = 0;
-            int temp = i;
-            while (temp>0) {
-                System.out.print(mx-j);
-                if (mx-j!=mn) System.out.print(" ");
-                j++;
-                temp--;
+            for (int j = 0; j < i; j++) {
+                System.out.print(mx - j + " ");
             }
         }
         System.out.println();
