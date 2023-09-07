@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Q4 {
+public class DNDQ4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean[][] field = new boolean[10][10];

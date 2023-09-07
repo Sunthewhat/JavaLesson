@@ -1,4 +1,4 @@
-public class Q4 {
+public class DNDPQ4 {
     public static void main(String[] args) {
         java.util.Scanner sc = new java.util.Scanner(System.in);
         int n = sc.nextInt();

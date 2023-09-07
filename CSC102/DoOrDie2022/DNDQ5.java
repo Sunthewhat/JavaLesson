@@ -120,7 +120,7 @@ class Car {
     }
 }
 
-public class Q5 {
+public class DNDQ5 {
     public static void main(String[] args) {
         ArrayList<Car> cars = new ArrayList<Car>();
         ArrayList<Owner> owners = new ArrayList<Owner>();
