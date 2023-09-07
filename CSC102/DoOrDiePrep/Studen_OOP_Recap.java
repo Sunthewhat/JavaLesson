@@ -48,7 +48,7 @@ class BasicCalculator implements Calculator {
     }
 }
 
-class Main {
+public class Studen_OOP_Recap {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         BasicCalculator cal = new BasicCalculator();
