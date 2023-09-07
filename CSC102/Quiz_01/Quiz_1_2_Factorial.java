@@ -1,4 +1,4 @@
-public class Quiz_2_Factorial {
+public class Quiz_1_2_Factorial {
     public static void main(String[] args) {
         java.util.Scanner sc = new java.util.Scanner(System.in);
         long n = sc.nextLong();

@@ -1,4 +1,4 @@
-public class Quiz_4_ASCII {
+public class Quiz_1_4_ASCII {
     public static void main(String[] args) {
         java.util.Scanner sc = new java.util.Scanner(System.in);
         int q = sc.nextInt();

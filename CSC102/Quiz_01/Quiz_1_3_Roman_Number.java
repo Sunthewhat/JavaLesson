@@ -1,4 +1,4 @@
-public class Quiz_3_Roman_Number {
+public class Quiz_1_3_Roman_Number {
     public static void main(String[] args) {
         java.util.Scanner sc = new java.util.Scanner(System.in);
         String A = sc.nextLine();
