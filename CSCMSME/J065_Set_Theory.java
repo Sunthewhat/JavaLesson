@@ -181,7 +181,6 @@ class Set {
 
     // !! It is needed to implement. !!
     public Set() {
-
     }
 
     // !! It is needed to implement. !!
