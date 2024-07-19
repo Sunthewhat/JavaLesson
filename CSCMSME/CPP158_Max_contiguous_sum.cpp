@@ -6,7 +6,6 @@ int main() {
      int n, range;
      cin >> n >> range;
      dp[0] = 0;
-     int a[n];
      for (int i = 1; i <= n; i++) {
           int tmp;
           cin >> tmp;
